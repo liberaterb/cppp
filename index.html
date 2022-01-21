@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <p class="h1"># 2.1 基本内置类型</p>
+    <p class="text">
+        C++定义了一套包括<span class="imp">算术类型(arithmetic type)</span>和<span class="imp">空类型(void)</span>在内的基本数据类型。
+        其中算术类型包括了字符、整型数、布尔值和浮点数。
+        空类型不对应具体的值，仅用于一些特殊的场合，
+        例如最常见的是，当函数不返回任何值时使用空类型作为返回类型。
+    </p>
+    <p class="h2"># 2.1.1 算术类型</p>
+    <p class="text">
+        算术类型分为两类：<span class="imp">整型(integral type，</span>包括字符和布尔类型在内)和浮点型。
+        算术类型的尺寸（也就是该类型数据所占的比特数）在不同的机器上有所差别。表2.1列出了C++标准规定的尺寸的最小值，同时允许编译器赋予这些类型更大的尺寸。
+        某一类型所占的比特数不同，它所能表示的数据范围也不一样。
+    </p>
+    <table class="table_1">
+        <thead>
+            <tr>
+                <th colspan="3" style="background-color: lightgrey;">表2.1：C++：算术类型</th>
+            </tr>
+            <tr style="border-bottom: 1px solid black;">
+                <th>类型</th>
+                <th>含义</th>
+                <th>最小尺寸</th>
+            </tr>
+            <tr>
+                <th>bool</th>
+                <th>布尔类型</th>
+                <th>未定义</th>
+            </tr>
+            <tr>
+                <th>char</th>
+                <th>字符</th>
+                <th>8位</th>
+            </tr>
+            <tr>
+                <th>wchar_t</th>
+                <th>宽字符</th>
+                <th>16位</th>
+            </tr>
+            <tr>
+                <th>char16_t</th>
+                <th>Unicode字符</th>
+                <th>16位</th>
+            </tr>
+            <tr>
+                <th>char32_t</th>
+                <th>Unicode字符</th>
+                <th>32位</th>
+            </tr>
+            <tr>
+                <th>short</th>
+                <th>短整型</th>
+                <th>16位</th>
+            </tr>
+            <tr>
+                <th>int</th>
+                <th>整型</th>
+                <th>16位</th>
+            </tr>
+        </thead>
+    </table>
+</body>
+
+</html>
