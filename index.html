@@ -63,26 +63,26 @@
 </head>
 
 <body>
-    <div id="app">
-        <div class="header" @click="showMenu">
-            <span style="user-select: none;">Menu 菜单</span>
-        </div>
-        <div class="menu" v-show="menuVisible">
-            <el-menu :default-openeds="menuOpen" @open="submenuOpen" @close="submenuClose" @select="menuSelect">
-                <el-submenu index="1">
-                    <template slot="title">
-                        <span>第一章</span>
-                    </template>
-                </el-submenu>
-                <el-submenu index="2">
-                    <template slot="title">
-                        <span>第二章</span>
-                    </template>
-                    <el-menu-item index="2-3">2.3　复合类型</el-menu-item>
-                </el-submenu>
-            </el-menu>
-        </div>
-
+    <div id="app" style="visibility:hidden;">
+            <div class="header" @click="showMenu">
+                <span style="user-select: none;">Menu 菜单</span>
+            </div>
+            <div class="menu" v-show="menuVisible">
+                <el-menu :default-openeds="menuOpen" :default-active="defaultActive" @open="submenuOpen"
+                    @close="submenuClose" @select="menuSelect">
+                    <el-submenu index="1">
+                        <template slot="title">
+                            <span>第一章</span>
+                        </template>
+                    </el-submenu>
+                    <el-submenu index="2">
+                        <template slot="title">
+                            <span>第二章</span>
+                        </template>
+                        <el-menu-item index="2-3">2.3　复合类型</el-menu-item>
+                    </el-submenu>
+                </el-menu>
+            </div>
     </div>
     <div id="md" style="margin: 0 10px;"></div>
     <script src="./_2c3.js"></script>
@@ -99,10 +99,21 @@
             el: '#app',
             data: {
                 menuVisible: false,
-                menuOpen: []
+                defaultActive: '',
+                menuOpen: [],
             },
             mounted() {
                 this.menuOpen = JSON.parse(window.localStorage.getItem('menuOpen')) ?? []
+                this.defaultActive = window.localStorage.getItem('defaultActive')
+                let str = ''
+                if (window[this.defaultActive]) {
+                    str = window[this.defaultActive]
+                }
+                document.getElementById('md').innerHTML =
+                    marked.parse(str)
+            },
+            created(){
+                document.getElementById("app").style.visibility = 'visible'
             },
             methods: {
                 showMenu() {
@@ -129,13 +140,14 @@
                     let defaultActive = ''
                     switch (index) {
                         case '2-3':
-                            str = window._2c3;
+                            str = window["2-3"];
                             defaultActive = '2-3';
                             break;
                     }
                     document.getElementById('md').innerHTML =
                         marked.parse(str)
-                    this.menuVisible = false    
+                    window.localStorage.setItem("defaultActive", defaultActive)
+                    this.menuVisible = false
                 }
             }
         })
