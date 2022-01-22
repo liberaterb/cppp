@@ -1,53 +1,28 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
-    font-size: 16px;
-    letter-spacing: 1.1px;
-    line-height: 1.6em;
+@font-face {
+    font-family: 'JM';
+    src: url('fonts/webfonts/JetBrainsMono-Medium.woff2');
 }
 
-body{
-    margin: 15px;
-}
-
-.h1 {
-    font-weight: 600;
-    font-size: 21px;
-}
-
-.h2{
-    font-weight: 600;
-    font-size: 18px;
-}
-
-.text {
-    text-indent: 2em;
-}
-
-.imp{
-    font-weight: bold;
-}
-
-.table_1{
-    border: 1px solid lightgrey;
-    border-collapse: collapse;
-}
-
-.table_1 th,td{
-    border: 1px solid lightgrey;
-}
-
-.note-card{
-    border: 1px solid black;
-}
-
-.note-card .title{
-    border-bottom: 1px solid black;
-    padding: 3px 4px;
+blockquote {
     background-color: lightgrey;
+    margin: 16px 0
 }
 
-.note-card .content{
+blockquote > p {
     padding: 4px 4px;
+}
+
+blockquote code {
+    background-color: #e1e1e1 !important;
+    border: 2px dashed #646464 !important;
+}
+
+pre {
+    border: 2px dashed lightgrey;
+    overflow-x: auto;
+}
+
+pre > code {
+    font-family: 'JM';
+    padding: 5px !important;
 }
